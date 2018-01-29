@@ -1,0 +1,12 @@
+<mat-divider></mat-divider>
+<br>
+<div class="columns">
+  <div class="column is-one-fifth">
+    <jersey-nav [teamnames]="teamnames"></jersey-nav>
+  </div>
+  <div class="column">
+    <div class="columns is-multiline">
+      <jersey-card class="column is-4" *ngFor="let j of jerseys" [jersey]="j"></jersey-card>
+    </div>
+  </div>
+</div>

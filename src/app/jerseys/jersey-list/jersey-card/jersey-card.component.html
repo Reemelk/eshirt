@@ -1,0 +1,12 @@
+<div *ngIf="jersey">
+  <mat-card>
+    <img mat-card-image src="https://i1.adis.ws/i/ArsenalDirect/m75156103_f?$810x810$&.jpg" alt="Photo">
+    <mat-card-title-group>
+      <mat-card-title>{{jersey.teamname | titlecase}} {{jersey.type | titlecase}} Jersey</mat-card-title>
+      <mat-card-subtitle>Price: {{jersey.price}} €</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-actions class="has-text-centered">
+      <a mat-button color="primary" routerLink="{{jersey.friendly_url}}">MORE DETAILS</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
