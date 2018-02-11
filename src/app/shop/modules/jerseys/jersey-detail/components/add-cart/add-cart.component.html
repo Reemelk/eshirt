@@ -1,0 +1,13 @@
+<h1 class="mat-display-1">Ajouter au panier ?</h1>
+<form [formGroup]="addCartForm" novalidate>
+  <mat-form-field>
+    <mat-select placeholder="Size" formControlName="size">
+      <mat-option *ngFor="let jstock of jstocks" [value]="jstock.size" (click)="setQuantities(jstock)">{{jstock.size}}</mat-option>
+    </mat-select>
+    <mat-hint *ngIf="quantities">{{quantities}} available</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="quantity" type="number" placeholder="Quantity" min="1" max="{{quantities || 15}}">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addToCart()" [disabled]="!addCartForm.valid">Add</button>
+</form>

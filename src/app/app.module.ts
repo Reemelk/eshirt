@@ -7,14 +7,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { JerseyService } from './jerseys/jersey.service';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { CartService } from './../app/shop/services/cart.service';
+import { JerseyService } from './../app/shop/services/jersey.service';
+import { PaymentService } from './../app/shop/services/payment.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule],
-  providers: [JerseyService],
+  providers: [
+    CartService, JerseyService, PaymentService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
