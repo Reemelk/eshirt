@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
-  imports: [MatListModule],
-  exports: [MatListModule]
+  imports: [MatTableModule],
+  exports: [MatTableModule]
 })
 export class CartMaterialModule { }

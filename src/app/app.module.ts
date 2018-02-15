@@ -10,12 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { CartService } from './../app/shop/services/cart.service';
 import { JerseyService } from './../app/shop/services/jersey.service';
 import { PaymentService } from './../app/shop/services/payment.service';
+import { StorageService } from './../app/shop/services/storage.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule],
   providers: [
-    CartService, JerseyService, PaymentService,
+    CartService, JerseyService, StorageService, PaymentService,
   ],
   bootstrap: [AppComponent]
 })

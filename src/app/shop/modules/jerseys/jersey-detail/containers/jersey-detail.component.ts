@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router'
 
 import { Jersey } from './../../../../interfaces/jersey.interface';
 import { Stock } from './../../../../interfaces/stock.interface';
-import { Item } from './../../../../interfaces/item.interface';
 
 import { JerseyService } from './../../../../services/jersey.service';
 import { CartService } from './../../../../services/cart.service';

@@ -14,6 +14,6 @@ export class JerseyService {
   }
 
   getJersey(frd_url: string): Jersey {
-    return JERSEYS[0];
+    return JERSEYS[1];
   }
 }

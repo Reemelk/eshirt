@@ -1,5 +1,22 @@
-<div *ngIf="cart" style="border-style: solid">
-  <ul>
-    <li *ngFor="let j of cart">{{j.teamname}}</li>
-  </ul>
-</div>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Teamname</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let j of cart">
+      <td></td>
+      <td>{{j.teamname}}</td>
+      <td>{{j.type}}</td>
+      <td>{{j.size}}</td>
+      <td>{{j.quantity}}</td>
+      <td>{{j.price}} €</td>
+    </tr>
+  </tbody>
+</table>

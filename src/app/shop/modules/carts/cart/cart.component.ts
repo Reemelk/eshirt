@@ -10,7 +10,7 @@ import { Jersey } from './../../../interfaces/jersey.interface';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  private cart$: Observable<Jersey[]>;
+  cart$: Observable<Jersey[]>;
 
   constructor(private cartService: CartService) {}
 
