@@ -23,5 +23,6 @@ export class SignupComponent implements OnInit {
 
   public onRegister(): void {
     const user: User = this.registerForm.value;
+    console.log(user);
   }
 }

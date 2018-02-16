@@ -4,7 +4,7 @@ import { of } from 'rxjs/observable/of';
 
 import { Jersey } from './../interfaces/jersey.interface';
 
-import { JERSEYS } from './../modules/jerseys/mock-jerseys';
+import { JERSEYS } from './../../../layouts/shop/modules/jerseys/mock-jerseys';
 
 @Injectable()
 export class JerseyService {
