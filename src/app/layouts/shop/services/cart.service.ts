@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
+
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/reduce';
 
 import { Jersey } from './../interfaces/jersey.interface';
 import { StorageService } from './storage.service';
@@ -22,7 +27,13 @@ export class CartService {
   }
 
   public getCart(): Observable<Jersey[]> {
-    return this.cartJerseysSubject.asObservable();
+    return this.cartJerseysSubject.asObservable().share();
+  }
+
+  public getTotalPrice(): Observable<number> {
+    return this.cartJerseysSubject.map((jerseys: Jersey[]) => {
+      return jerseys.reduce((prev, curr) => (curr.quantity * curr.price) + prev, 0);  
+    });
   }
 
   private addItemToCart(new_item: Jersey): void {

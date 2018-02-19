@@ -1,2 +1,2 @@
-<cart-list [cart]="cart$ | async"></cart-list>
-<checkout></checkout>
+<cart-list (removeJerseyCart)="removeFromCart($event)"></cart-list>
+<checkout [totalPrice]="totalPrice$ | async"></checkout>

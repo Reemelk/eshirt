@@ -1,22 +1,36 @@
-<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Teamname</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let j of cart">
-      <td></td>
-      <td>{{j.teamname}}</td>
-      <td>{{j.type}}</td>
-      <td>{{j.size}}</td>
-      <td>{{j.quantity}}</td>
-      <td>{{j.price}} €</td>
-    </tr>
-  </tbody>
-</table>
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="teamname">
+    <mat-header-cell *matHeaderCellDef>Teamname</mat-header-cell>
+    <mat-cell *matCellDef="let jersey">{{jersey.teamname}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+    <mat-cell *matCellDef="let jersey">{{jersey.type}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="size">
+    <mat-header-cell *matHeaderCellDef>Size</mat-header-cell>
+    <mat-cell *matCellDef="let jersey">{{jersey.size}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>
+    <mat-cell *matCellDef="let jersey">{{jersey.quantity}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+    <mat-cell *matCellDef="let jersey">{{jersey.price}} €</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <i class="material-icons" (click)="removeCart(row.reference)">delete</i>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

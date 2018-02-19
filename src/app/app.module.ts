@@ -15,6 +15,10 @@ import { CartService } from './../app/layouts/shop/services/cart.service';
 import { JerseyService } from './../app/layouts/shop/services/jersey.service';
 import { PaymentService } from './../app/layouts/shop/services/payment.service';
 import { StorageService } from './../app/layouts/shop/services/storage.service';
+import { AuthService } from './../app/layouts/user/services/auth.service';
+import { RegisterService } from './../app/layouts/user/services/register.service';
+
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +27,8 @@ import { StorageService } from './../app/layouts/shop/services/storage.service'
     ApolloModule, HttpLinkModule,
   ],
   providers: [
-    CartService, JerseyService, StorageService, PaymentService,
+    httpInterceptorProviders, CartService, JerseyService, StorageService, PaymentService, AuthService,
+    RegisterService,
   ],
   bootstrap: [AppComponent]
 })

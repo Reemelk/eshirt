@@ -11,6 +11,6 @@
         <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
       </form>
     </mat-card-content>
-    <mat-error>Wrong credientials</mat-error>
+    <mat-error *ngIf="error$ | async">Incorrect login credentials</mat-error>
   </mat-card>
 </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
 import { CartService } from './../../../services/cart.service';
-import { Jersey } from './../../../interfaces/jersey.interface';
+import { Jersey } from './../../../interfaces/jersey.interface';
 
 @Component({
   selector: 'cart',
@@ -10,11 +10,15 @@ import { Jersey } from './../../../interfaces/jersey.interface';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart$: Observable<Jersey[]>;
+  totalPrice$: Observable<number>
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cart$ = this.cartService.getCart();
+    this.totalPrice$ = this.cartService.getTotalPrice();
+  }
+
+  public removeFromCart(jerseyToRemove: Jersey): void {
+    this.cartService.removeToCart(jerseyToRemove);
   }
 }
