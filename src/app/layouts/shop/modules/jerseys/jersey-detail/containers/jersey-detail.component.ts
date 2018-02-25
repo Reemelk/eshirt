@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 
-import { Jersey } from './../../../../interfaces/jersey.interface';
-import { Stock } from './../../../../interfaces/stock.interface';
+import { Jersey } from './../../../../../core/interfaces/jersey.interface';
+import { Stock } from '../../../../../core/interfaces/stock.interface';
 
-import { JerseyService } from './../../../../services/jersey.service';
-import { CartService } from './../../../../services/cart.service';
+import { JerseyService } from './../../../../../core/services/jersey.service';
+import { CartService } from './../../../../../core/services/cart.service';
 
 @Component({
   selector: 'jersey-detail',
@@ -15,8 +15,7 @@ import { CartService } from './../../../../services/cart.service';
 })
 export class JerseyDetailComponent implements OnInit {
   private param: string;
-  jersey: Jersey;
-  jstocks: Stock[];
+  jersey: Jersey
 
   constructor(private route: ActivatedRoute, private jerseyService: JerseyService, private cartService: CartService) {
     this.param = this.route.snapshot.params.friendly_url;
@@ -24,12 +23,10 @@ export class JerseyDetailComponent implements OnInit {
 
   ngOnInit() {
     this.jersey = this.jerseyService.getJersey(this.param);
-    this.jstocks = [{size: 'S', quantity: 12}, {size: 'L', quantity: 2}, {size: 'XL', quantity: 5}];
   }
 
   addToCart(s: Stock): void {
-    this.jersey.size = s.size;
-    this.jersey.quantity = s.quantity;
+    this.jersey.stocks.push(s);
     this.cartService.addToCart(this.jersey);
   }
 }

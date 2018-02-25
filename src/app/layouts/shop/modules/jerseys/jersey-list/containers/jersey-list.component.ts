@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Jersey } from './../../../../interfaces/jersey.interface';
-import { JerseyService } from './../../../../services/jersey.service';
+import { JerseyService } from './../../../../../core/services/jersey.service';
 
 @Component({
   selector: 'jerseys',
@@ -11,7 +10,7 @@ import { JerseyService } from './../../../../services/jersey.service';
   styleUrls: ['./jersey-list.component.css']
 })
 export class JerseyListComponent implements OnInit {
-  jerseys$: Observable<Jersey[]>;
+  jerseys$: Observable<any>;
 
   constructor(private jerseyService: JerseyService) {}
 

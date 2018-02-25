@@ -1,2 +1,2 @@
 <jersey-feature class="column is-two-thirds" [jersey]="jersey"></jersey-feature>
-<add-cart class="column" [jstocks]="jstocks" (jerseyWithSizeQty)="addToCart($event)"></add-cart>
+<add-cart class="column" [jstocks]="jersey | select: 'stocks'" (jerseyWithSizeQty)="addToCart($event)"></add-cart>

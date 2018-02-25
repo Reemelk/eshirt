@@ -27,7 +27,7 @@ export class CartService {
   }
 
   public getCart(): Observable<Jersey[]> {
-    return this.cartJerseysSubject.asObservable().share();
+    return this.cartJerseysSubject.asObservable();
   }
 
   public getTotalPrice(): Observable<number> {

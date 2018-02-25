@@ -1,4 +1,4 @@
-export interface Jersey {
+export type Jersey = {
   id?: number;
   image?: string;
   reference?: number;
@@ -9,6 +9,15 @@ export interface Jersey {
   type?: string;
   color?: string;
   friendly_url?: string;
-  size?: string;
-  quantity?: number;
+  stocks?: Stock[];
+}
+
+export type Stock = {
+  size: string;
+  quantity: number;
+}
+
+export type Query = {
+  jerseys: Jersey[];
+  jersey(friendly_url: string): Jersey;
 }
